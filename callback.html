@@ -2,7 +2,7 @@
   <script>
     function send(q){
       sessionStorage.code = JSON.stringify(q);
-      window.location.href = 'https://roger-padrell.github.io/figmaExport/export'
+      window.location.href = 'https://roger-padrell.github.io/figmaExport/export?code=' + JSON.stringify(q);
     }
     
     window.onload = function(){
