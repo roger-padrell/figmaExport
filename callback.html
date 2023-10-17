@@ -1,5 +1,10 @@
 <html>
   <script>
+    function send(q){
+      sessionStorage.code = JSON.stringify(q);
+      window.location.href = 'https://roger-padrell.github.io/figmaExport/export'
+    }
+    
     window.onload = function(){
       var par = window.location.href.split("?")[1];
       var params = par.split("&");
@@ -13,7 +18,7 @@
       
       fetch('https://www.figma.com/api/oauth/token?client_id=' + clientId + '&client_secret=' + clientSecret + '&redirect_uri=' + redirectUri + '&code=' + authorizationCode + '&grant_type=authorization_code', {method: 'POST',})
       		.then(response => response.json())
-      		.then(response => sessionStorage.code = console.log(response))
+      		.then(response => sessionStorage.code = send(response))
       		.catch(err => console.error(err));
           }
   </script>
