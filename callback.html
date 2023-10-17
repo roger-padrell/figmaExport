@@ -4,7 +4,17 @@
       var par = window.location.href.split("?")[1];
       var params = par.split("&");
       var code = params[0].split("=")[1];
-      console.log(code)
-    }
+
+      
+      const clientId = 'vAoUJ1Od0FzXLSxRxKtygH';
+      const clientSecret = 'Lj7Bxx2g2f1mZOSxqBnHlmdaEL3kDl';
+      const redirectUri = 'https://roger-padrell.github.io/figmaExport/callback';
+      const authorizationCode = code;
+      
+      fetch('https://www.figma.com/api/oauth/token?client_id=' + clientId + '&client_secret=' + clientSecret + '&redirect_uri=' + redirectUri + '&code=' + authorizationCode + '&grant_type=authorization_code', {method: 'POST',})
+      		.then(response => response.json())
+      		.then(response => sessionStorage.code = console.log(response))
+      		.catch(err => console.error(err));
+          }
   </script>
 </html>
