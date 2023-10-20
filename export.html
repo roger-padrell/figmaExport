@@ -1,5 +1,6 @@
 <html>
   <script>
+    var data = {}
     window.onload = function(){
       code = JSON.parse(window.location.href.split("?")[1].split("=")[1].replaceAll("%22", '"'))
 
@@ -14,9 +15,12 @@
       
       fetch("https://api.figma.com/v1/files/" + prompt("File id", "0t9SMmG2b9CsmIs32UgCfN"), requestOptions)
         .then(response => response.text())
-        .then(result => console.log(result))
+        .then(result => docload(result))
         .catch(error => console.log('error', error));
             
-          }
+    }
+    function docload(inf){
+      data = inf;
+    }
   </script>
 </html>
