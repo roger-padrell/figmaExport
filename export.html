@@ -1,6 +1,7 @@
 <html>
   <script>
     var data = {}
+    var mdata = {}
     window.onload = function(){
       code = JSON.parse(window.location.href.split("?")[1].split("=")[1].replaceAll("%22", '"'))
 
@@ -20,7 +21,8 @@
             
     }
     function docload(inf){
-      data = inf;
+      data = JSON.parse(inf);
+      mdata = data.document.children;
     }
   </script>
 </html>
