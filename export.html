@@ -1,7 +1,7 @@
 <html>
   <script>
     window.onload = function(){
-      code = JSON.parse(sessionStorage.code);
+      code = JSON.parse(window.location.href.split("?")[1].split("=")[1].replaceAll("%22", '"'))
 
       //prompt for fileID
       var myHeaders = new Headers();
