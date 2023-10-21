@@ -1,0 +1,92 @@
+<html>
+<head>
+	<title>FigmaExport - Figma to HTML</title>
+	 <link rel="icon" type="image/png" href="./FigmaExport.png">
+</head>
+<body>
+	<span id="s">Your file url: </span><br>
+	<input type="text" id="fileId" name = "fileId" placeholder="https://www.figma.com/file/...">
+	<button onclick="go()" id="go">Start</button>
+
+</body>
+
+<style>
+@font-face {
+  font-family: "Figma";
+  src:
+    local("Figma"),
+    url("font.ttf") format("truetype")
+}
+
+#s{
+position: absolute;
+top: 35%;
+left: 45%;
+}
+
+#go{
+	position:absolute;
+	top: 65%;
+	left: 41%;
+	width: 20%;
+	background-color: #0DC203;
+	border: none;
+	border-radius: 10px;
+}
+
+*{
+font-family: "Figma";
+font-size: 30px;
+}
+
+#fileId{
+font-family: "Figma";
+font-size: 30px;
+position: absolute;
+width: 30%;
+left: 35%;
+height: 10%;
+top: 45%;
+border: none;
+background: radial-gradient(circle at 100% 100%, #ffffff 0, #ffffff 10px, transparent 10px) 0% 0%/20px 20px no-repeat,
+            radial-gradient(circle at 0 100%, #ffffff 0, #ffffff 10px, transparent 10px) 100% 0%/20px 20px no-repeat,
+            radial-gradient(circle at 100% 0, #ffffff 0, #ffffff 10px, transparent 10px) 0% 100%/20px 20px no-repeat,
+            radial-gradient(circle at 0 0, #ffffff 0, #ffffff 10px, transparent 10px) 100% 100%/20px 20px no-repeat,
+            linear-gradient(#ffffff, #ffffff) 50% 50%/calc(100% - 20px) calc(100% - 40px) no-repeat,
+            linear-gradient(#ffffff, #ffffff) 50% 50%/calc(100% - 40px) calc(100% - 20px) no-repeat,
+            linear-gradient(90deg, #f24d18 0%, #ff7362 25%, #a358ff 50%, #13bdfe 75%, #02d084 100%);
+border-radius: 20px;
+padding: 20px;
+box-sizing: content-box;
+}
+
+#fileId:focus{
+all: unset;
+position: absolute;
+width: 30%;
+left: 35%;
+height: 10%;
+top: 45%;
+border: none;
+background: radial-gradient(circle at 100% 100%, #ffffff 0, #ffffff 10px, transparent 10px) 0% 0%/20px 20px no-repeat,
+            radial-gradient(circle at 0 100%, #ffffff 0, #ffffff 10px, transparent 10px) 100% 0%/20px 20px no-repeat,
+            radial-gradient(circle at 100% 0, #ffffff 0, #ffffff 10px, transparent 10px) 0% 100%/20px 20px no-repeat,
+            radial-gradient(circle at 0 0, #ffffff 0, #ffffff 10px, transparent 10px) 100% 100%/20px 20px no-repeat,
+            linear-gradient(#ffffff, #ffffff) 50% 50%/calc(100% - 20px) calc(100% - 40px) no-repeat,
+            linear-gradient(#ffffff, #ffffff) 50% 50%/calc(100% - 40px) calc(100% - 20px) no-repeat,
+            linear-gradient(90deg, #f24d18 0%, #ff7362 25%, #a358ff 50%, #13bdfe 75%, #02d084 100%);
+border-radius: 20px;
+padding: 20px;
+box-sizing: content-box;
+font-family: "Figma";
+font-size: 30px;
+}
+</style>
+
+<script>
+function go(){
+var val = document.getElementById("fileId").value;
+window.location.href = "https://roger-padrell.github.io/figmaExport/auth?file=" + val;
+}
+</script>
+</html>
