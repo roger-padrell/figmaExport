@@ -14,7 +14,7 @@
         headers: myHeaders
       };
       
-      fetch("https://api.figma.com/v1/files/" + prompt("File id", "0t9SMmG2b9CsmIs32UgCfN"), requestOptions)
+      fetch("https://api.figma.com/v1/files/" + code.fileId, requestOptions)
         .then(response => response.text())
         .then(result => docload(result))
         .catch(error => console.log('error', error));
