@@ -1,14 +1,17 @@
 <html>
   <script>
+    var fileId;
     function send(q){
-      sessionStorage.code = JSON.stringify(q);
-      window.location.href = 'https://roger-padrell.github.io/figmaExport/export?code=' + JSON.stringify(q);
+      var dt = q;
+      dt["fileId"] = fileId;
+      window.location.href = 'https://roger-padrell.github.io/figmaExport/export?code=' + JSON.stringify(dt);
     }
     
     window.onload = function(){
       var par = window.location.href.split("?")[1];
       var params = par.split("&");
       var code = params[0].split("=")[1];
+      fileId = params[1].split("=")[1];
 
       
       const clientId = 'vAoUJ1Od0FzXLSxRxKtygH';
