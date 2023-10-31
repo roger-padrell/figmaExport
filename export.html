@@ -93,6 +93,9 @@ class FigmaObject{
 		obj.style.width = this.width;
 		obj.style.top = this.top;
 		obj.style.left = this.left;
+		if(ele.rotation){
+			obj.style.transform = "rotate(" + ele.rotation * -57.29577951308232 + "deg)";
+		}
 				
 		obj.style.backgroundColor = "rgb(" + ele.fills[0].color.r * 250 + ", " + ele.fills[0].color.g * 250 + ", " + ele.fills[0].color.b * 250 + ")"
 		obj.style.borderRadius = ele.cornerRadius + "px";
