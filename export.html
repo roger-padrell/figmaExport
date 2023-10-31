@@ -1,5 +1,6 @@
 <html>
   <body>
+	<img id="img" src="thumbnail.png" style="position: absolute; height: 200px; top: 10%; left: 37%;">
     <input id="result" placeholder="Loading result..." disabled="disabled"><button onclick="codeCopy()">COPY</button>
   </body>
 <style>
@@ -136,6 +137,7 @@ function figmaLoad(){
     }
     function docload(inf){
       data = JSON.parse(inf);
+	document.getElementById("img").src = data.thumbnailUrl;
       document.getElementById("result").value = figmaLoad();
     }
 
