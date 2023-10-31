@@ -85,7 +85,8 @@ font-size: 30px;
 
 <script>
 function go(){
-var val = document.getElementById("fileId").value;
+var va = document.getElementById("fileId").value;
+	var val = va.split("/")[4];
 window.location.href = "https://roger-padrell.github.io/figmaExport/auth?file=" + val;
 }
 </script>
