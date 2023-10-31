@@ -1,5 +1,48 @@
 <html>
+  <body>
+    <h1>FigmaExport</h1>
+    <h2>Result:</h2>
+    <input id="result" placeholder="Loading result..." disabled="disabled"><button onclick="codeCopy()">COPY</button>
+  </body>
   <script>
+    var cont = document.createElement("body")
+class FigmaObject{
+	constructor(ele, par){
+		var el = ele.absoluteBoundingBox;
+		var parent = par.absoluteBoundingBox;
+		this.height = el.height / parent.height * 100 + "%";
+		this.width = el.width / parent.width * 100 + "%";
+		this.top = (el.y - parent.y) / parent.height * 100 + "%";
+		this.left = (el.x - parent.x) / parent.width * 100 + "%";
+		
+		let obj = document.createElement("div");
+		obj.style.position = "absolute";
+		obj.style.height = this.height;
+		obj.style.width = this.width;
+		obj.style.top = this.top;
+		obj.style.left = this.left;
+				
+		obj.style.backgroundColor = "rgb(" + ele.fills[0].color.r * 250 + ", " + ele.fills[0].color.g * 250 + ", " + ele.fills[0].color.b * 250 + ")"
+		obj.style.borderRadius = ele.cornerRadius + "px";
+		
+		cont.appendChild(obj)
+		
+		return obj;
+	}
+}
+
+function figmaLoad(){
+	var doc = data.document.children[0].children[0];
+	var els = doc.children;
+	
+	for(e in els){
+		new FigmaObject(els[e], doc)
+	}
+	
+	cont.style.backgroundColor = "rgb(" + doc.fills[0].color.r * 250 + ", " + doc.fills[0].color.g * 250 + ", " + doc.fills[0].color.b * 250 + ")"
+	
+	return cont.outerHTML;
+}
     var data = {}
     var mdata = {}
     window.onload = function(){
@@ -22,7 +65,19 @@
     }
     function docload(inf){
       data = JSON.parse(inf);
-      mdata = data.document.children;
+      document.getElementById("result").value = figmaLoad();
+    }
+
+    function codeCopy(){
+      var copyText = document.getElementById("result");
+
+  // Select the text field
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); // For mobile devices
+
+   // Copy the text inside the text field
+  navigator.clipboard.writeText(copyText.value);
+      alert("code copied")
     }
   </script>
 </html>
