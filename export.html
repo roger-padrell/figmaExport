@@ -95,13 +95,9 @@ class FigmaObject{
 		obj.style.left = this.left;
 		if(ele.rotation){
 			obj.style.transform = "rotate(" + ele.rotation * -57.29577951308232 + "deg)";
-		}
-		if(ele.fills[0].type == "SOLID"){		
-			obj.style.backgroundColor = "rgba(" + ele.fills[0].color.r * 250 + ", " + ele.fills[0].color.g * 250 + ", " + ele.fills[0].color.b * 250 + ", " + ele.fills[0].color.a * 250 + ")"
-		}
-		else if(ele.fills[0].type == "IMAGE"){
-			obj.style.backgroundImage = prompt("Image url needed (" + ele.name + ")")
-		}
+		}		
+		
+		obj.style.backgroundColor = "rgba(" + ele.fills[0].color.r * 250 + ", " + ele.fills[0].color.g * 250 + ", " + ele.fills[0].color.b * 250 + ", " + ele.fills[0].color.a * 250 + ")"
 		obj.style.borderRadius = ele.cornerRadius + "px";
 		
 		cont.appendChild(obj)
